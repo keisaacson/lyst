@@ -8,6 +8,13 @@
 </head>
 <body>
 
+	<% if current_user %>
+	  Welcome to Lists! You are signed in as <%= current_user.email %>.
+	  <%= link_to 'sign out', destroy_user_session_path, :method => :delete %>
+	<% else %>
+	  Please <%= link_to 'sign in', new_user_session_path %> first.
+	<% end %>
+
 <%= yield %>
 
 </body>
