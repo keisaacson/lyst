@@ -1,0 +1,11 @@
+<li id=<%= list.id %> class="list-item"><%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, remote: true, class: "delete-list", id: "delete#{list.id}", data: { confirm: 'Are you sure?' } %><%= list.title %></li>
+  <div class=<%="list-expand"%> id=<%="list-expand#{list.id}"%> hidden>
+    <em><%= list.list_type.capitalize %></em>
+    <ol>
+	    <% list.items.each do |item|%>
+	    	<li class="list-item"><%= item.content %></li>
+	    <% end %>
+    </ol>
+    <%= link_to 'View', list %>
+    <%= link_to 'Edit', edit_list_path(list) %>
+  </div>

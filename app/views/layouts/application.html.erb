@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400' rel='stylesheet' type='text/css'>
   <title>Lists</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,10 +10,10 @@
 <body>
 
 	<% if current_user %>
-	  You are signed in as <%= current_user.email %>.
-	  <%= link_to 'sign out', destroy_user_session_path, :method => :delete %>
+	  <%= current_user.email %>.
+	  <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
 	<% else %>
-	  Please <%= link_to 'sign in', new_user_session_path %> first.
+	  <%= link_to 'Sign In', new_user_session_path %>
 	<% end %>
 
 <%= yield %>

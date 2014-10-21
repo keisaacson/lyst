@@ -24,7 +24,7 @@ class ListsController < ApplicationController
     @list.user_id = current_user.id
     @list.list_type = "private"
     @list.save
-    redirect_to root_path
+    redirect_to list_path(@list.id)
   end
 
   def update
@@ -34,7 +34,9 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
   end
 
   private

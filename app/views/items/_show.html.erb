@@ -1,3 +1,1 @@
-<li id=<%= item.id %> class="list-item"><%= link_to image_tag("/images/trash.jpeg"), item, method: :delete, remote: true, class: "delete-item", id: "delete#{item.id}" %>  <%= item.content %></li>
-
-<!-- ( ) -->
+<li id=<%= item.id %> class="list-item"><%= link_to image_tag("/images/trash.jpeg"), item, method: :delete, remote: true, class: "delete-item", id: "delete#{item.id}" %><%= item.content %></li>
