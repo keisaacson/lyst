@@ -1,11 +1,14 @@
+require 'pry-byebug'
+
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def show
+    @list = List.find(params[:id])
   end
 
   def new
@@ -13,11 +16,15 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @list = List.find(params[:id])
   end
 
   def create
     @list = List.new(list_params)
+    @list.user_id = current_user.id
+    @list.list_type = "private"
     @list.save
+    redirect_to root_path
   end
 
   def update
@@ -25,15 +32,13 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    @list = List.find(params[:id])
     @list.destroy
+    redirect_to root_path
   end
 
   private
-    def set_list
-      @list = List.find(params[:id])
-    end
-
     def list_params
-      params.require(:list).permit(:list_type)
+      params.require(:list).permit(:title)
     end
 end

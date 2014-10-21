@@ -1,9 +1,29 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <p>
-  <strong>List type:</strong>
-  <%= @list.list_type %>
+  <strong class="list-title"><%= @list.title %></strong>
 </p>
+<p>
+  <em><%= @list.list_type.capitalize %></em>
+</p>
+<ol class="list-items">
+  <% if @list.items.length == 0 %>
+  	<p class="empty-list"> This list is currently empty- add some items!</p>
+  <% else %>
+	  <% @list.items.each do |item| %>
+	  	<%= render('items/show', :item => item) %>
+	  <% end -%>
+  <% end %>
+</ol>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<%= form_tag("/lists/#{@list.id}/items", method: :post, remote: true) do -%>
+	<input type="text" id="content" name="item[content]">
+	
+	<input name="list[id]" value=<%= "#{@list.id}" %> type="hidden">
+	<input type="submit" value="Add Item">
+<% end -%>
+
+</br>
+</br>
+<%= link_to 'Edit List', edit_list_path(@list) %> |
+<%= link_to 'View All Lists', lists_path %>

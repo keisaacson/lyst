@@ -10,6 +10,44 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require lib/normalize.css
  *= require_tree .
  *= require_self
  */
+
+* {
+	box-sizing: border-box;
+}
+
+a.delete-item {
+	text-decoration: none;
+}
+
+a.delete-item:hover {
+	text-decoration: none;
+}
+
+
+img {
+	width: 12px;
+	margin: 10px;
+}
+
+img:hover {
+	border-radius: 0.5;
+}
+
+.list-item {
+	list-style: none;
+	margin-left: 10px;
+}
+
+strong.list-title {
+	font-size: 1.5em;
+	margin: 15px;
+}
+
+em {
+	margin: 17px;
+	font-style: italic;
+}

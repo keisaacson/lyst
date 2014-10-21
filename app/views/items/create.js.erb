@@ -1,0 +1,6 @@
+(function () {
+  var itemHtml = "<%= j render('show', :item => @item) %>";
+  $('.empty-list').remove();
+  $('.list-items').append(itemHtml);
+  $('#content').val('');
+})();
