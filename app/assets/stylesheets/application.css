@@ -20,12 +20,22 @@ html * {
 	font-family: 'Open Sans', sans-serif;
 }
 
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
 h1 {
 	font-size: 2em;
 }
 
 img {
-	width: 10px;
+	width: 12px;
 	margin-right: 5px;
 }
 

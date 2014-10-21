@@ -4,6 +4,8 @@ gem "rspec-rails", "~> 2.14.0"
 gem 'hirb'
 gem 'pry-byebug'
 gem 'devise'
+gem 'jquery-turbolinks'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record

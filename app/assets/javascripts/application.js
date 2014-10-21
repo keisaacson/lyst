@@ -11,13 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-readyselector
 //= require_tree .
+//= require turbolinks
 
-$(document).on('ready', function(){
-	$('.list-item').on('click', function(e){
-		var me = e.target;
-		$(me).nextUntil('li').toggle();
-	})
-})
