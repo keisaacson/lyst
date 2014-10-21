@@ -34,7 +34,7 @@ h1 {
 	font-size: 2em;
 }
 
-img {
+img, input[type="image"] {
 	width: 12px;
 	margin-right: 5px;
 }

@@ -13,7 +13,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
     @item.update(item_params)
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
   end
 
   def destroy

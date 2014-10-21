@@ -11,6 +11,7 @@
   <% else %>
 	  <% @list.items.each do |item| %>
 	  	<%= render('items/show', :item => item) %>
+	  	<%= render('items/edit', :item => item) %>
 	  <% end -%>
   <% end %>
 </ol>

@@ -1,0 +1,9 @@
+<li id=<%= "edit#{item.id}" %> class="list-item" hidden>
+	<%= form_tag("/items/#{item.id}", method: :put, remote: true) do -%>
+		<input type="text" id="content" name="item[content]" value="<%= item.content %>">
+		
+		<input name="list[id]" value=<%= "#{@list.id}" %> type="hidden">
+		<span id=<%="list-icons#{item.id}"%> class="list-icons">
+			<%= image_submit_tag("/images/save.jpeg")%>
+			<%= link_to image_tag("/images/trash.jpeg"), item, method: :delete, remote: true, class: "delete-item", id: "delete#{item.id}" %></span>
+	<% end -%></li>
