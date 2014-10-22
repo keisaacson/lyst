@@ -1,0 +1,13 @@
+<strong class="list-title"><%= list.title %></strong>
+<div class="edit-title" hidden>
+	<%= form_tag("/lists/#{list.id}", method: :put, remote: true) do -%>
+		<input type="text" id=<%= "title-content" %> name="list[title]" value="<%= list.title %>">
+		
+		<span id=<%="title-list-icons"%> class="list-icons">
+			<span class="edit-item"><%= image_submit_tag("/images/save.jpeg")%></span>
+			<%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, class: "delete-item", id: "delete-list", data: { confirm: 'Are you sure?' } %>
+			<span class="hover-text-save">Save Changes</span>
+		    <span class="hover-text-delete">Delete List</span>
+		</span>
+	<% end -%>
+</div>

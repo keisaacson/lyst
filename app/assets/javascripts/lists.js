@@ -4,5 +4,5 @@ $('.lists.index').ready(function(){
 		var id = $(me).attr('id');
 		$(me).nextUntil('li').toggle();
 		$('span#list-icons'+ id).toggle();
-	})
+	});
 })

@@ -3,7 +3,7 @@
 		<input type="text" id=<%= "content#{item.id}" %> name="item[content]" value="<%= item.content %>">
 		
 		<input name="list[id]" value=<%= "#{item.list_id}" %> type="hidden">
-		<span id=<%="list-icons#{item.id}"%> class="list-icons" hidden>
+		<span id=<%="list-icons#{item.id}"%> class="list-icons">
 			<span class="edit-item"><%= image_submit_tag("/images/save.jpeg")%></span>
 			<%= link_to image_tag("/images/trash.jpeg"), item, method: :delete, remote: true, class: "delete-item", id: "delete#{item.id}" %>
 			<span class="hover-text-save">Save Changes</span>

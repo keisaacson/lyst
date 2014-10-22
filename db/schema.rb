@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020214118) do
+ActiveRecord::Schema.define(version: 20141022142223) do
 
   create_table "items", force: true do |t|
     t.integer  "list_id"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20141020214118) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  create_table "shares", force: true do |t|
+    t.integer  "list_id"
+    t.integer  "user_id"
+    t.string   "share_access"
+    t.string   "favorite"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shares", ["list_id"], name: "index_shares_on_list_id"
+  add_index "shares", ["user_id"], name: "index_shares_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

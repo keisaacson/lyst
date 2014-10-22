@@ -1,7 +1,7 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
 
- <strong class="list-title"><%= @list.title %></strong>
+ <%= render('edit', :list => @list) %>
 
  <em><%= @list.list_type.capitalize %></em>
 

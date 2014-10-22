@@ -43,7 +43,7 @@ img:hover, input[type="image"]:hover {
 	opacity: 0.7;
 }
 
-strong.list-title {
+strong.list-title, div.edit-title {
 	display: block;
 	font-size: 1.2em;
 	margin: 10px 15px 5px 15px;

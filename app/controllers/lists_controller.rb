@@ -28,13 +28,18 @@ class ListsController < ApplicationController
   end
 
   def update
+    @list = List.find(params[:id])
     @list.update(list_params)
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
   end
 
   def destroy
     @list = List.find(params[:id])
     @list.destroy
     respond_to do |format|
+      format.html { redirect_to lists_path}
       format.js { render :layout => false }
     end
   end

@@ -5,5 +5,9 @@ $('.lists.show').ready(function(){
 		$('span#list-icons'+ id).show();
 		$(me).hide();
 		$('li#edit'+ id).show();
+	});
+	$('.list-title').dblclick(function(){
+		$('.list-title').hide();
+		$('.edit-title').show();
 	})
 })
