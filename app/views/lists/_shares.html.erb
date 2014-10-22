@@ -1,0 +1,34 @@
+<div class="share-detail">
+	<% if list.shares.length == 0 %>
+	  <em><%= "#{list.list_type.capitalize}, No Shares" %>
+	  	<% if current_user == list.user %>
+			<span class="share-item"><%= image_tag("/images/share.png")%></span>
+			<span class="hover-text-1">Share List</span>
+		<% end %>
+	  </em>
+	  <ul class="shares-list">
+	  </ul>
+	<% elsif list.shares.length == 1 %>
+	  <em><%= "#{list.list_type.capitalize}, 1 Share:" %>
+	  	<% if current_user == list.user %>
+			<span class="share-item"><%= image_tag("/images/share.png")%></span>
+			<span class="hover-text-1">Share List</span>
+		<% end %>
+	  </em> 
+	  <ul class="shares-list">
+		  <em><%= "#{list.shares.first.user.email}" %></em>
+	  </ul>
+	<% else %>
+	  <em><%= "#{list.list_type.capitalize}, #{list.shares.length} Shares:" %>
+	  	<% if current_user == list.user %>
+			<span class="share-item"><%= image_tag("/images/share.png")%></span>
+			<span class="hover-text-1">Share List</span>
+		<% end %>
+	  </em>
+	  	<ul class="shares-list">
+		  <% list.shares.each do |share| %>
+		  	<em><li id=<%= share.id %> class="share-email"><%= share.user.email %></li></em>
+		  <% end -%>
+	  	</ul>
+	<% end %>
+</div>

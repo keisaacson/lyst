@@ -1,9 +1,24 @@
-<!-- <p id="notice"><%= notice %></p> -->
 
+<%= render('edit', :list => @list) %>
 
- <%= render('edit', :list => @list) %>
+<%= render('shares', :list => @list) %>
 
- <em><%= @list.list_type.capitalize %></em>
+<div class="add-share" hidden>
+	<%= form_tag("/lists/#{@list.id}/shares", method: :post, remote: true) do -%>
+		<% users = @list.shares.map {|s| s.user_id }%>
+		<select name="share[user_id]">
+			<option value="" selected></option>
+			<% @users.each do |x| %>
+				<% if x != current_user && !users.include?(x.id) %>
+					<option value=<%= "#{x.id}" %>><%="#{x.email.downcase}"%></option>
+				<% end %>
+			<% end %>
+		</select>
+		
+		<input name="share[list_id]" value=<%= "#{@list.id}" %> type="hidden">
+		<input type="submit" value="Share List">
+	<% end -%>
+</div>
 
 <ul class="list-items">
   <% if @list.items.length == 0 %>

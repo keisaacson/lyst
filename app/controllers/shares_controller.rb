@@ -1,9 +1,18 @@
+require 'pry-byebug'
+
 class SharesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @share = Share.new(share_params)
-    @share.save
+    if params[:share][:user_id] != ""
+      @share = Share.new(share_params)
+      @share.share_access = "write"
+      @share.favorite = "no"
+      @share.save
+    end
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
   end
 
   def update

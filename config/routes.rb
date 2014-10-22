@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :lists do
     resources :items, :only => [:create]
+    resources :shares, :only => [:create]
   end
 
   resources :items, :only => [:update, :destroy]
+  resources :shares, :only => [:update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

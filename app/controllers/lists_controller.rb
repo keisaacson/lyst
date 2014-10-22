@@ -5,10 +5,12 @@ class ListsController < ApplicationController
 
   def index
     @lists = current_user.lists
+    @shares = current_user.shares
   end
 
   def show
     @list = List.find(params[:id])
+    @users = User.all
   end
 
   def new

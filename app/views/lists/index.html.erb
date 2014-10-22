@@ -1,17 +1,30 @@
 <h1>Listy</h1>
 
-<strong class="list-title">My Lists</strong>
  
-<ul class="list-items">
-  <% if @lists.length == 0 %>
-    <p class="empty-list"> You don't have any lists- add some below!</p>
-  <% else %>
-    <% @lists.each do |list| %>
-        <%= render('lists/show', :list => list) %>
-    <% end -%>
-  <% end %>
-</ul>
+<div id="my-lists-container">
+<strong class="list-title">My Lists</strong>
+	<ul class="list-items">
+	  <% if @lists.length == 0 %>
+	    <p class="empty-list"> You don't have any lists- add some below!</p>
+	  <% else %>
+	    <% @lists.each do |list| %>
+	        <%= render('lists/show', :list => list) %>
+	    <% end -%>
+	  <% end %>
+	</ul>
+</div>
 
-<br>
+<div id="my-shares-container">
+	<strong class="list-title">My Shares</strong>
+	<ul class="list-items">
+	  <% if @shares.length == 0 %>
+	    <p class="empty-list"> You don't curreantly have any shares :( </p>
+	  <% else %>
+	    <% @shares.each do |share| %>
+	        <%= render('lists/show', :list => share.list) %>
+	    <% end -%>
+	  <% end %>
+	</ul>
+</div>
 
 <%= link_to 'Add New List', new_list_path %>

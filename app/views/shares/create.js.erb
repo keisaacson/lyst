@@ -1,0 +1,5 @@
+(function () {
+	$('.add-share').hide();
+	var sharesHtml = "<%= j render('lists/shares', :list => @share.list) %>";
+	$('.share-detail').replaceWith(sharesHtml);
+})();

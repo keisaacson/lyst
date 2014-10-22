@@ -1,17 +1,28 @@
 <li id=<%= list.id %> class="list-item top-level"><%= list.title %>
-  <span id=<%="list-icons#{list.id}"%> class="list-icons" hidden>
-    <%= link_to image_tag("/images/edit.png"), list_path(list), class: "edit-list" %>
-    <%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, remote: true, class: "delete-list", id: "delete#{list.id}", data: { confirm: 'Are you sure?' } %>
-    <span class="hover-text-edit">Edit List</span>
-    <span class="hover-text-delete">Delete List</span>
-  </span>
-</li>
-<div class="list-expand" id=<%="list-expand#{list.id}"%> hidden>
-  <em><%= list.list_type.capitalize %></em>
-  <ol class="nested-list">
-    <% list.items.each do |item|%>
-    	<li class="list-item"><%= item.content %></li>
-    <% end %>
-  </ol>
+    <span id=<%="list-icons#{list.id}"%> class="list-icons" hidden>
+      <%= link_to image_tag("/images/edit.png"), list_path(list), class: "edit-list" %>
 
-</div>
+      <% if current_user == list.user %>
+        <%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, remote: true, class: "delete-list", id: "delete#{list.id}", data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+      <span class="hover-text-edit">Edit List</span>
+
+      <% if current_user == list.user %>
+        <span class="hover-text-1">Delete List</span>
+      <% end %>
+      
+    </span>
+</li>
+  <div class="list-expand" id=<%="list-expand#{list.id}"%> hidden>
+    <% if list.user == current_user %>
+      <em><%= list.list_type.capitalize %></em>
+    <% else %>
+      <em><%= "Owner: #{list.user.email}" %></em>
+    <% end %>
+    <ol class="nested-list">
+      <% list.items.each do |item|%>
+      	<li class="list-item"><%= item.content %></li>
+      <% end %>
+    </ol>
+  </div>
