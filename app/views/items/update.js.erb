@@ -1,7 +1,7 @@
 (function () {
-	var id = <%= @item.id %>;
-	var newItemContentHtml = "<%= j render('items/show', :item => @item) %>";
-	$('li#'+ id).replaceWith(newItemContentHtml);
+	var id = "<%= @item.id %>";
+	var content = "<%= @item.content %>";
+	$('li#'+ id).text(content);
 	$('li#edit'+ id).hide();
 	$('li#'+ id).show();
 })();

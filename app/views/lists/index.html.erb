@@ -2,7 +2,7 @@
 
 <strong class="list-title">My Lists</strong>
  
-<ol class="list-items">
+<ul class="list-items">
   <% if @lists.length == 0 %>
     <p class="empty-list"> You don't have any lists- add some below!</p>
   <% else %>
@@ -10,7 +10,7 @@
         <%= render('lists/show', :list => list) %>
     <% end -%>
   <% end %>
-</ol>
+</ul>
 
 <br>
 

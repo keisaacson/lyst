@@ -5,7 +5,7 @@
 
  <em><%= @list.list_type.capitalize %></em>
 
-<ol class="list-items">
+<ul class="list-items">
   <% if @list.items.length == 0 %>
   	<p class="empty-list"> This list is currently empty- add some items!</p>
   <% else %>
@@ -14,7 +14,7 @@
 	  	<%= render('items/edit', :item => item) %>
 	  <% end -%>
   <% end %>
-</ol>
+</ul>
 
 <%= form_tag("/lists/#{@list.id}/items", method: :post, remote: true) do -%>
 	<input type="text" id="content" name="item[content]">
@@ -25,5 +25,4 @@
 
 </br>
 </br>
-<%= link_to 'Edit List', edit_list_path(@list) %> |
 <%= link_to 'View All Lists', lists_path %>

@@ -1,6 +1,14 @@
 (function () {
   var itemHtml = "<%= j render('show', :item => @item) %>";
+  var editItemHtml = "<%= j render('edit', :item => @item) %>";
   $('.empty-list').remove();
   $('.list-items').append(itemHtml);
-  $('#content').val('');
+  $('.list-items').append(editItemHtml);
+  $('input#content').val('');
+  $('.non-edit-item').dblclick(function(e){
+		var me = e.target;
+		var id = $(me).attr('id');
+		$(me).hide();
+		$('li#edit'+ id).show();
+	});
 })();

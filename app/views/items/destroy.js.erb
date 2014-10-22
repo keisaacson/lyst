@@ -1,5 +1,6 @@
 (function () {
   var itemId = <%= @item.id %>
   $('#'+itemId+'.list-item').remove();
+  $('#edit'+itemId).remove();
   $('#delete'+itemId).remove();
 })();

@@ -1,13 +1,17 @@
-<li id=<%= list.id %> class="list-item"><%= list.title %><span id=<%="list-icons#{list.id}"%> class="list-icons" hidden><%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, remote: true, class: "delete-list", id: "delete#{list.id}", data: { confirm: 'Are you sure?' } %>
-    <%= link_to image_tag("/images/edit.png"), edit_list_path(list) %></span></li>
-  <div class="list-expand" id=<%="list-expand#{list.id}"%> hidden>
-    <em><%= list.list_type.capitalize %></em>
-    <ol>
-	    <% list.items.each do |item|%>
-	    	<li class="list-item"><%= item.content %></li>
-	    <% end %>
-    </ol>
-    
-    <%= link_to 'View', list %>
+<li id=<%= list.id %> class="list-item top-level"><%= list.title %>
+  <span id=<%="list-icons#{list.id}"%> class="list-icons" hidden>
+    <%= link_to image_tag("/images/edit.png"), list_path(list), class: "edit-list" %>
+    <%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, remote: true, class: "delete-list", id: "delete#{list.id}", data: { confirm: 'Are you sure?' } %>
+    <span class="hover-text-edit">Edit List</span>
+    <span class="hover-text-delete">Delete List</span>
+  </span>
+</li>
+<div class="list-expand" id=<%="list-expand#{list.id}"%> hidden>
+  <em><%= list.list_type.capitalize %></em>
+  <ol class="nested-list">
+    <% list.items.each do |item|%>
+    	<li class="list-item"><%= item.content %></li>
+    <% end %>
+  </ol>
 
-  </div>
+</div>
