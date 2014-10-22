@@ -39,7 +39,7 @@ img, input[type="image"] {
 	margin-right: 5px;
 }
 
-img:hover {
+img:hover, input[type="image"]:hover {
 	opacity: 0.7;
 }
 
@@ -87,7 +87,7 @@ li.top-level:before {
 	margin: 5px 0 5px 25px;
 }
 
-.hover-text-delete, .hover-text-edit {
+.hover-text-delete, .hover-text-edit, .hover-text-save {
 	background-color: black;
 	color: white;
 	font-size: .7em;
@@ -101,16 +101,28 @@ li.top-level:before {
 	display: inline;
 }
 
+.delete-item:hover ~ .hover-text-delete {
+	display: inline;
+}
+
 .edit-list:hover ~ .hover-text-edit {
 	display: inline;
 }
 
+.edit-item:hover ~ .hover-text-save {
+	display: inline;
+}
+
 .hover-text-delete {
-	left: -3.8em;
+	left: -4em;
 }
 
 .hover-text-edit {
 	left: -4.8em;
+}
+
+.hover-text-save {
+	left: -6.5em;
 }
 
 /*.nested-list li:before {
