@@ -1,5 +1,5 @@
-<h1>Listy</h1>
-
+<h1>lyst-eria</h1>
+<em>make sick lysts</em>
  
 <div id="my-lists-container">
 <strong class="list-title">My Lists</strong>
@@ -22,6 +22,19 @@
 	  <% else %>
 	    <% @shares.each do |share| %>
 	        <%= render('lists/show', :list => share.list) %>
+	    <% end -%>
+	  <% end %>
+	</ul>
+</div>
+
+<div id="public-lists-container">
+	<strong class="list-title">Recent Public Lists</strong>
+	<ul class="list-items">
+	  <% if @public_lists.length == 0 %>
+	    <p class="empty-list"> There aren't any public lists!! </p>
+	  <% else %>
+	    <% @public_lists.each do |public_list| %>
+	        <%= render('lists/show', :list => public_list) %>
 	    <% end -%>
 	  <% end %>
 	</ul>

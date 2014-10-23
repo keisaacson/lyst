@@ -16,8 +16,10 @@
 </li>
   <div class="list-expand" id=<%="list-expand#{list.id}"%> hidden>
     <% if list.user == current_user %>
-      <em><%= list.list_type.capitalize %></em>
-      <%= link_to image_tag("/images/public.png"), list, method: :put, remote: true, class: "delete-list" %>
+
+        <%= render('lists/type', :list => list) %>
+
+      </em>
     <% else %>
       <em><%= "Owner: #{list.user.email}" %></em>
     <% end %>

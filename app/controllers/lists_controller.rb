@@ -6,6 +6,7 @@ class ListsController < ApplicationController
   def index
     @lists = current_user.lists
     @shares = current_user.shares
+    @public_lists = List.where(list_type: "public").order("updated_at desc").limit(10)
   end
 
   def show
@@ -52,6 +53,6 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:title)
+      params.require(:list).permit(:title, :list_type)
     end
 end

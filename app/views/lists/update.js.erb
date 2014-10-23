@@ -4,3 +4,9 @@
 	$('.edit-title').hide();
 	$('.list-title').show();
 })();
+
+(function () {
+	var id = "<%= @list.id %>";
+	var formHtml = "<%= j render('lists/type', :list => @list) %>";
+	$('#list-expand' + id + ' .list-type').replaceWith(formHtml);
+})();

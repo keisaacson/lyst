@@ -35,10 +35,10 @@ h1 {
 	font-size: 2em;
 }
 
-#my-lists-container, #my-shares-container {
+#my-lists-container, #my-shares-container, #public-lists-container {
 	display: inline-block;
 	float: left;
-	width: 325px;
+	width: 300px;
 }
 
 img, input[type="image"] {
