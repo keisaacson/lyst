@@ -20,14 +20,12 @@ class SharesController < ApplicationController
     end
   end
 
-  def update
-    @share = Share.find(params[:id])
-    @share.update(share_params)
-  end
-
   def destroy
     @share = Share.find(params[:id])
     @share.destroy
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
   end
 
 private

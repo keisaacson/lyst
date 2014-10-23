@@ -12,5 +12,14 @@ $('.lists.show').ready(function(){
 	});
 	$('.share-item').click(function(){
 		$('.add-share').toggle();
+		$('.shares-list').toggle($('.add-share').is(":visible"));
+	});
+	$('.shares-expand').dblclick(function(){
+		$('.shares-list').toggle();
+	});
+	$('.share-email').dblclick(function(e){
+		var me = e.target; 
+		var id = $(me).attr('id');
+		$('#' + id + ' .share-item').toggle();
 	});
 })

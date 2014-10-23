@@ -19,18 +19,30 @@
 		<% end %>
 	  </em> 
 	  <ul class="shares-list">
-		  <em><%= "#{list.shares.first.user.email}" %></em>
+		  <em><li id=<%= list.shares.first.id %> class="share-email">
+	  			<%= list.shares.first.user.email %>
+	  			<% if current_user == list.user %>
+	  				<%= link_to image_tag("/images/remove.jpeg"), list.shares.first, method: :delete, remote: true, class: "share-item", hidden: true %>
+		  			<span class="hover-text-1">Remove Share</span>
+	  			<% end %>
+	  		</li></em>
 	  </ul>
 	<% else %>
-	  <em><%= "#{list.list_type.capitalize}, #{list.shares.length} Shares:" %>
+	  <em class="shares-expand"><%= "#{list.list_type.capitalize}, #{list.shares.length} Shares:" %>
 	  	<% if current_user == list.user %>
 			<span class="share-item"><%= image_tag("/images/share.png")%></span>
 			<span class="hover-text-1">Share List</span>
 		<% end %>
 	  </em>
-	  	<ul class="shares-list">
+	  	<ul class="shares-list" hidden>
 		  <% list.shares.each do |share| %>
-		  	<em><li id=<%= share.id %> class="share-email"><%= share.user.email %></li></em>
+		  	<em><li id=<%= share.id %> class="share-email">
+	  			<%= share.user.email %>
+	  			<% if current_user == list.user %>
+	  				<%= link_to image_tag("/images/remove.jpeg"), share, method: :delete, remote: true, class: "share-item", hidden: true %>
+		  			<span class="hover-text-1">Remove Share</span>
+	  			<% end %>
+	  		</li></em>
 		  <% end -%>
 	  	</ul>
 	<% end %>
