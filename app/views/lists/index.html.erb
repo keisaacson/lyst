@@ -18,7 +18,7 @@
 	<strong class="list-title">My Shares</strong>
 	<ul class="list-items">
 	  <% if @shares.length == 0 %>
-	    <p class="empty-list"> You don't curreantly have any shares :( </p>
+	    <p class="empty-list"> You don't currently have any shares :( </p>
 	  <% else %>
 	    <% @shares.each do |share| %>
 	        <%= render('lists/show', :list => share.list) %>

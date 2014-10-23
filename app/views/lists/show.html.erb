@@ -1,19 +1,12 @@
-
 <%= render('edit', :list => @list) %>
 
 <%= render('shares', :list => @list) %>
 
 <div class="add-share" hidden>
 	<%= form_tag("/lists/#{@list.id}/shares", method: :post, remote: true) do -%>
-		<% users = @list.shares.map {|s| s.user_id }%>
-		<select name="share[user_id]">
-			<option value="" selected></option>
-			<% @users.each do |x| %>
-				<% if x != current_user && !users.include?(x.id) %>
-					<option value=<%= "#{x.id}" %>><%="#{x.email.downcase}"%></option>
-				<% end %>
-			<% end %>
-		</select>
+
+		<label for="autocomplete">Select a user: </label>
+		<input id="autocomplete" name="user[email]">
 		
 		<input name="share[list_id]" value=<%= "#{@list.id}" %> type="hidden">
 		<input type="submit" value="Share List">
@@ -41,3 +34,13 @@
 </br>
 </br>
 <%= link_to 'View All Lists', lists_path %>
+
+<% user_ids = @list.shares.map {|s| s.user_id }%>
+<% users = @users.map {|u| u.email if (!user_ids.include?(u.id) && u !=current_user)}.join(',') %>
+
+<script>
+	var users = '<%= users %>';
+	$( "#autocomplete" ).autocomplete({
+		source: users.split(','),
+	});
+</script>

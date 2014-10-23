@@ -39,7 +39,11 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
+    @shares = @list.shares
+    @items = @list.items
     @list.destroy
+    @items.each {|i| i.destroy }
+    @shares.each {|s| s.destroy }
     respond_to do |format|
       format.html { redirect_to lists_path}
       format.js { render :layout => false }

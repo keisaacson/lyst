@@ -1,4 +1,7 @@
 <div class="share-detail">
+	<% if current_user != list.user %>
+		<em><%= "Owner: #{list.user.email.downcase}" %></em>
+	<% end %>
 	<% if list.shares.length == 0 %>
 	  <em><%= "#{list.list_type.capitalize}, No Shares" %>
 	  	<% if current_user == list.user %>

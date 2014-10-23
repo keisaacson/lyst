@@ -5,6 +5,7 @@ gem 'hirb'
 gem 'pry-byebug'
 gem 'devise'
 gem 'jquery-turbolinks'
+gem 'jquery-ui-rails', '~> 5.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'

@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-readyselector
+//= require jquery-ui/autocomplete
 //= require_tree .
 //= require turbolinks
 

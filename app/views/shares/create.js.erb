@@ -2,4 +2,7 @@
 	$('.add-share').hide();
 	var sharesHtml = "<%= j render('lists/shares', :list => @share.list) %>";
 	$('.share-detail').replaceWith(sharesHtml);
+	$('.share-item').click(function(){
+		$('.add-share').toggle();
+	});
 })();

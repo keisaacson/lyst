@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require lib/normalize.css
+ *= require jquery-ui/autocomplete
  *= require_tree .
  *= require_self
  */
@@ -37,8 +38,7 @@ h1 {
 #my-lists-container, #my-shares-container {
 	display: inline-block;
 	float: left;
-	min-width: 250px;
-	max-width: 350px;
+	width: 325px;
 }
 
 img, input[type="image"] {

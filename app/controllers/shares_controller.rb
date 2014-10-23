@@ -4,14 +4,19 @@ class SharesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    if params[:share][:user_id] != ""
+    @user = User.find_by(email: params[:user][:email])
+    if @user
       @share = Share.new(share_params)
+      @share.user_id = @user.id
       @share.share_access = "write"
       @share.favorite = "no"
       @share.save
-    end
-    respond_to do |format|
-      format.js { render :layout => false }
+      respond_to do |format|
+        format.js { render :layout => false }
+      end
+    else
+      flash[:error] = "There was an error sharing the list with that user."
+      redirect_to 
     end
   end
 
@@ -27,7 +32,7 @@ class SharesController < ApplicationController
 
 private
   def share_params
-    params.require(:share).permit(:user_id, :list_id, :share_access, :favorite)
+    params.require(:share).permit(:list_id)
   end
 
 end
