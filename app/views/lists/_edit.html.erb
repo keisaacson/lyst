@@ -5,8 +5,8 @@
 </strong>
 <% if current_user == list.user %>
 	<div class="edit-title">
-		<%= form_tag("/lists/#{list.id}", method: :put, remote: true) do -%>
-			<input type="text" id=<%= "title-content" %> name="list[title]" value="<%= list.title %>">
+		<%= form_tag("/lists/#{list.id}", method: :put, remote: true, hidden: true) do -%>
+			<input type="text" id=<%= "title-content"%> name="list[title]" value="<%= list.title %>">
 			
 			<span id=<%="title-list-icons"%> class="list-icons">
 				<span class="edit-item hover-4"><%= image_submit_tag("/images/save.jpeg")%></span>

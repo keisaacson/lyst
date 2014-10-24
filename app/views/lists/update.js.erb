@@ -3,8 +3,13 @@
 (function () {
 	var title = "<%= @list.title %>";
 	$('.list-title .title').text(title);
-	$('.edit-title').hide();
+	$('.edit-title form').hide();
 	$('.list-title').show();
+})();
+
+(function () {
+	var shareHtml = "<%= j render('lists/show_type', :list => @list) %>";
+	$('.shares-container').replaceWith(shareHtml);
 })();
 
 (function () {

@@ -1,3 +1,4 @@
+<!-- Show Page, edit an item -->
 
 <li id=<%= "edit#{item.id}" %> class="list-item top-level" hidden>
 	<%= form_tag("/items/#{item.id}", method: :put, remote: true) do -%>

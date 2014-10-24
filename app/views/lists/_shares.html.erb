@@ -1,22 +1,10 @@
+<!-- Show Page, Shows Shares and Ability to Add/Remove Shares for List Owner-->
+
 <div class="share-detail">
 	<% if current_user != list.user %>
 		<em><%= "Owner: #{list.user.email.downcase}" %></em>
 	<% end %>
 	<% if list.shares.length == 0 %>
-	  	<% if current_user == list.user %>
-	  	<%= form_tag("/lists/#{list.id}", method: :put, remote: true, class: "list-type") do -%>
-		    <em><%= "#{list.list_type.capitalize}" %>
-			<span class="share-item hover-3"><%= image_submit_tag("/images/public.png")%></span>
-		    <% if list.list_type == 'private' %>
-		        <span class="hover-text-3">Make Public</span>
-		        <input name="list[list_type]" value="public" type="hidden">
-		    <% else %>
-		        <span class="hover-text-3">Make Private</span>
-		        <input name="list[list_type]" value="private" type="hidden">
-		    <% end -%>
-	    <% end -%>
-		<% end %>
-	  </em>
 	  <em><%= "No Shares" %>
 	  	<% if current_user == list.user %>
 			<span class="share-item hover-3"><%= image_tag("/images/share.png")%></span>
@@ -26,7 +14,7 @@
 	  <ul class="shares-list">
 	  </ul>
 	<% elsif list.shares.length == 1 %>
-	  <em><%= "#{list.list_type.capitalize}, 1 Share:" %>
+	  <em><%= "1 Share:" %>
 	  	<% if current_user == list.user %>
 			<span class="share-item hover-3"><%= image_tag("/images/share.png")%></span>
 			<span class="hover-text-3">Share List</span>
@@ -42,7 +30,7 @@
 	  		</li></em>
 	  </ul>
 	<% else %>
-	  <em class="shares-expand"><%= "#{list.list_type.capitalize}, #{list.shares.length} Shares:" %>
+	  <em class="shares-expand"><%= "#{list.shares.length} Shares:" %>
 	  	<% if current_user == list.user %>
 			<span class="share-item hover-3"><%= image_tag("/images/share.png")%></span>
 			<span class="hover-text-3">Share List</span>

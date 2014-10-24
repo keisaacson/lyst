@@ -1,5 +1,4 @@
 $('.lists.show').ready(function(){
-	$('.edit-title').hide();
 	$('.non-edit-item').dblclick(function(e){
 		var me = e.target;
 		var id = $(me).attr('id');
@@ -9,7 +8,7 @@ $('.lists.show').ready(function(){
 	});
 	$('.list-title').dblclick(function(){
 		if($('.edit-title').length > 0) {
-			$('.edit-title').show();
+			$('.edit-title form').show();
 			$('.list-title').hide();
 	    }
 	});

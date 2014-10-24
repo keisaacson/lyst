@@ -1,0 +1,18 @@
+<div class="shares-container">
+	<% if current_user == list.user %>
+	  	<%= form_tag("/lists/#{list.id}", method: :put, remote: true, class: "list-type") do -%>
+		    <em><%= "#{list.list_type.capitalize}" %>
+				<span class="hover-3"><%= image_submit_tag("/images/public.png")%></span>
+			    <% if list.list_type == 'private' %>
+			        <span class="hover-text-3">Make Public</span>
+			        <input name="list[list_type]" value="public" type="hidden">
+			    <% else %>
+			        <span class="hover-text-3">Make Private</span>
+			        <input name="list[list_type]" value="private" type="hidden">
+			    <% end -%>
+		    </em>
+	    <% end -%>
+	<% else %>
+		<em><%= list.list_type.capitalize %></em>
+	<% end %>
+</div>
