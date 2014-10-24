@@ -1,6 +1,3 @@
-<h1>lyst-eria</h1>
-<em>make sick lysts</em>
- 
 <div id="my-lists-container">
 <strong class="list-title">My Lists</strong>
 	<ul class="list-items">
@@ -8,7 +5,7 @@
 	    <p class="empty-list"> You don't have any lists- add some below!</p>
 	  <% else %>
 	    <% @lists.each do |list| %>
-	        <%= render('lists/show', :list => list) %>
+	        <%= render('lists/show', {:list => list, :page => 'index'}) %>
 	    <% end -%>
 	  <% end %>
 	</ul>
@@ -21,23 +18,10 @@
 	    <p class="empty-list"> You don't currently have any shares :( </p>
 	  <% else %>
 	    <% @shares.each do |share| %>
-	        <%= render('lists/show', :list => share.list) %>
+	        <%= render('lists/show', {:list => share.list, :page => 'index'}) %>
 	    <% end -%>
 	  <% end %>
 	</ul>
 </div>
 
-<div id="public-lists-container">
-	<strong class="list-title">Recent Public Lists</strong>
-	<ul class="list-items">
-	  <% if @public_lists.length == 0 %>
-	    <p class="empty-list"> There aren't any public lists!! </p>
-	  <% else %>
-	    <% @public_lists.each do |public_list| %>
-	        <%= render('lists/show', :list => public_list) %>
-	    <% end -%>
-	  <% end %>
-	</ul>
-</div>
-
-<%= link_to 'Add New List', new_list_path %>
+<span class="block"> <%= link_to 'Add New List', new_list_path %> <span>

@@ -33,7 +33,6 @@
 
 </br>
 </br>
-<%= link_to 'View All Lists', lists_path %>
 
 <% user_ids = @list.shares.map {|s| s.user_id }%>
 <% users = @users.map {|u| u.email if (!user_ids.include?(u.id) && u !=current_user)}.join(',') %>

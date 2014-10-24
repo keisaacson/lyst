@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "lists#index"
   devise_for :users
+  get 'lists/public' => 'lists#index_public'
+  
   resources :lists do
     resources :items, :only => [:create]
     resources :shares, :only => [:create]
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :items, :only => [:update, :destroy]
   resources :shares, :only => [:destroy]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

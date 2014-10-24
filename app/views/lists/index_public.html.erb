@@ -1,0 +1,12 @@
+<div id="public-lists-container">
+	<strong class="list-title">Recent Public Lists</strong>
+	<ul class="list-items">
+	  <% if @public_lists.length == 0 %>
+	    <p class="empty-list"> There aren't any public lists!! </p>
+	  <% else %>
+	    <% @public_lists.each do |public_list| %>
+	        <%= render('lists/show', {:list => public_list, :page => 'public'}) %>
+	    <% end -%>
+	  <% end %>
+	</ul>
+</div>

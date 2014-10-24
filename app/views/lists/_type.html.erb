@@ -1,11 +1,18 @@
 <%= form_tag("/lists/#{list.id}", method: :put, remote: true, class: "list-type") do -%>
     <em><%= list.list_type.capitalize %>
-    <span class="share-item"><%= image_submit_tag("/images/public.png")%></span>
-    <% if list.list_type == 'private' %>
-        <span class="hover-text-1">Make Public</span>
-        <input name="list[list_type]" value="public" type="hidden">
-    <% else %>
-        <span class="hover-text-1">Make Private</span>
-        <input name="list[list_type]" value="private" type="hidden">
-    <% end -%>
+	    <span class="share-item hover-1"><%= image_submit_tag("/images/public.png")%></span>
+		  <%= link_to image_tag("/images/edit.png"), list_path(list), class: "edit-list hover-2" %>
+
+		  <%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, remote: true, class: "delete-list hover-3", id: "delete#{list.id}", data: { confirm: 'Are you sure?' } %>
+
+	    <% if list.list_type == 'private' %>
+	        <span class="hover-text-1">Make Public</span>
+	        <input name="list[list_type]" value="public" type="hidden">
+	    <% else %>
+	        <span class="hover-text-1">Make Private</span>
+	        <input name="list[list_type]" value="private" type="hidden">
+	    <% end -%>
+		  <span class="hover-text-2">Edit List</span>
+		  <span class="hover-text-3">Delete List</span>	  
+	</em>
 <% end -%>

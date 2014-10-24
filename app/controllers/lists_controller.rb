@@ -6,6 +6,9 @@ class ListsController < ApplicationController
   def index
     @lists = current_user.lists
     @shares = current_user.shares
+  end
+
+  def index_public
     @public_lists = List.where(list_type: "public").order("updated_at desc").limit(10)
   end
 

@@ -8,7 +8,10 @@ $('.lists.show').ready(function(){
 		$('li#edit'+ id).show();
 	});
 	$('.list-title').dblclick(function(){
-		$('.edit-title').show();
+		if($('.edit-title').length > 0) {
+			$('.edit-title').show();
+			$('.list-title').hide();
+	    }
 	});
 	$('.share-item').click(function(){
 		$('.add-share').toggle();
