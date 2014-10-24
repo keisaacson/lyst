@@ -1,3 +1,5 @@
+<!-- My Lists Index page, List Actions for List Owners Only -->
+
 <%= form_tag("/lists/#{list.id}", method: :put, remote: true, class: "list-type") do -%>
     <em><%= list.list_type.capitalize %>
 	    <span class="share-item hover-1"><%= image_submit_tag("/images/public.png")%></span>

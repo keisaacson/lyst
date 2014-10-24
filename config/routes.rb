@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "lists#index"
   devise_for :users
   get 'lists/public' => 'lists#index_public'
+  get 'lists/public/search' => 'lists#public_search'
   
   resources :lists do
     resources :items, :only => [:create]

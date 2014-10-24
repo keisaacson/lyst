@@ -1,3 +1,5 @@
+<!-- Show List page, List Title and Edit List Functionality for Current Users -->
+
 <strong class="list-title">
 	<span class="title"> <%= list.title %> <span>
 </strong>
@@ -7,10 +9,10 @@
 			<input type="text" id=<%= "title-content" %> name="list[title]" value="<%= list.title %>">
 			
 			<span id=<%="title-list-icons"%> class="list-icons">
-				<span class="edit-item"><%= image_submit_tag("/images/save.jpeg")%></span>
-				<%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, class: "delete-list", id: "delete-list", data: { confirm: 'Are you sure?' } %>
-				<span class="hover-text-save">Save Changes</span>
-			    <span class="hover-text-1">Delete List</span>
+				<span class="edit-item hover-4"><%= image_submit_tag("/images/save.jpeg")%></span>
+				<%= link_to image_tag("/images/trash.jpeg"), list, method: :delete, class: "delete-list hover-3", id: "delete-list", data: { confirm: 'Are you sure?' } %>
+				<span class="hover-text-4">Save Changes</span>
+			    <span class="hover-text-3">Delete List</span>
 			</span>
 		<% end -%>
 	</div>

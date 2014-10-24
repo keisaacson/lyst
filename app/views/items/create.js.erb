@@ -1,7 +1,17 @@
+// Show page, add list item
+
 (function () {
   var id = "<%= @item.id %>";
-  $('li#' + id).innerText("<%=h @item.content %>");
-  $('lid#edit' + id).val("<%= @item.content %>");
-  $('li#' + id).show();
-  $('lid#edit' + id).hide();
+  var itemHtml = "<%= j render('show', :item => @item) %>";
+  var editHtml = "<%= j render('edit', :item => @item) %>";
+  $('ul.list-items').append(itemHtml);
+  $('ul.list-items').append(editHtml);
+  $('input#content').val("");
+  $('.non-edit-item').dblclick(function(e){
+	var me = e.target;
+	var id = $(me).attr('id');
+	$('span#list-icons'+ id).show();
+	$(me).hide();
+	$('li#edit'+ id).show();
+  });
 })();

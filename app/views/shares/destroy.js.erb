@@ -1,7 +1,9 @@
+// Show page, remove share
+
 (function () {
-	$('.add-share').hide();
 	var sharesHtml = "<%= j render('lists/shares', :list => @share.list) %>";
 	$('.share-detail').replaceWith(sharesHtml);
+	$('input#autocomplete').val('');
 	$('.share-item').click(function(){
 		$('.add-share').toggle();
 		$('.shares-list').toggle($('.add-share').is(":visible"));

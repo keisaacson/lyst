@@ -10,20 +10,33 @@ class ListsController < ApplicationController
 
   def index_public
     @public_lists = List.where(list_type: "public").order("updated_at desc").limit(10)
+    @public_lists_all = List.where(list_type: "public")
+  end
+
+  def public_search
+    @search_results = List.where("title LIKE ?", "%#{params[:list][:search]}%")
   end
 
   def show
-    @list = List.find(params[:id])
-    @users = User.all
+    lists = current_user.lists
+    shares = current_user.shares
+    list_accesses = lists.map {|l| l.id}
+    shares.each {|s| list_accesses << s.list_id}
+    if list_accesses.include?(params[:id].to_i)
+      @list = List.find(params[:id])
+      @users = User.all
+    else
+      redirect_to lists_path
+    end
   end
 
   def new
     @list = List.new
   end
 
-  def edit
-    @list = List.find(params[:id])
-  end
+  # def edit
+  #   @list = List.find(params[:id])
+  # end
 
   def create
     @list = List.new(list_params)

@@ -1,3 +1,5 @@
+<!-- My Lists Index page, Lists with Nested List Items, Icons/actions dependent on owner/share/public access -->
+
 <li id=<%= list.id %> class="list-item top-level"><%= list.title %></li>
   <div class="list-expand" id=<%="list-expand#{list.id}"%> hidden>
     <% if list.user == current_user && page != 'public' %>
@@ -5,11 +7,13 @@
         <%= render('lists/type', :list => list) %>
 
       </em>
-    <% else %>
+    <% elsif page != 'public' %>
       <em><%= "Owner: #{list.user.email}" %></em>
         <%= link_to image_tag("/images/edit.png"), list_path(list), class: "edit-list hover-3 share" %>
         <span class="hover-text-3">Edit List</span>
       
+    <% else %>
+       <em><%= "Owner: #{list.user.email}" %></em>
     <% end %>
 
     <ol class="nested-list">

@@ -3,10 +3,24 @@
 		<em><%= "Owner: #{list.user.email.downcase}" %></em>
 	<% end %>
 	<% if list.shares.length == 0 %>
-	  <em><%= "#{list.list_type.capitalize}, No Shares" %>
 	  	<% if current_user == list.user %>
-			<span class="share-item"><%= image_tag("/images/share.png")%></span>
-			<span class="hover-text-1">Share List</span>
+	  	<%= form_tag("/lists/#{list.id}", method: :put, remote: true, class: "list-type") do -%>
+		    <em><%= "#{list.list_type.capitalize}" %>
+			<span class="share-item hover-3"><%= image_submit_tag("/images/public.png")%></span>
+		    <% if list.list_type == 'private' %>
+		        <span class="hover-text-3">Make Public</span>
+		        <input name="list[list_type]" value="public" type="hidden">
+		    <% else %>
+		        <span class="hover-text-3">Make Private</span>
+		        <input name="list[list_type]" value="private" type="hidden">
+		    <% end -%>
+	    <% end -%>
+		<% end %>
+	  </em>
+	  <em><%= "No Shares" %>
+	  	<% if current_user == list.user %>
+			<span class="share-item hover-3"><%= image_tag("/images/share.png")%></span>
+			<span class="hover-text-3">Share List</span>
 		<% end %>
 	  </em>
 	  <ul class="shares-list">
@@ -14,24 +28,24 @@
 	<% elsif list.shares.length == 1 %>
 	  <em><%= "#{list.list_type.capitalize}, 1 Share:" %>
 	  	<% if current_user == list.user %>
-			<span class="share-item"><%= image_tag("/images/share.png")%></span>
-			<span class="hover-text-1">Share List</span>
+			<span class="share-item hover-3"><%= image_tag("/images/share.png")%></span>
+			<span class="hover-text-3">Share List</span>
 		<% end %>
 	  </em> 
 	  <ul class="shares-list">
 		  <em><li id=<%= list.shares.first.id %> class="share-email">
 	  			<%= list.shares.first.user.email %>
 	  			<% if current_user == list.user %>
-	  				<%= link_to image_tag("/images/remove.jpeg"), list.shares.first, method: :delete, remote: true, class: "share-item", hidden: true %>
-		  			<span class="hover-text-1">Remove Share</span>
+	  				<%= link_to image_tag("/images/remove.jpeg"), list.shares.first, method: :delete, remote: true, class: "share-item hover-2", hidden: true %>
+		  			<span class="hover-text-2">Remove Share</span>
 	  			<% end %>
 	  		</li></em>
 	  </ul>
 	<% else %>
 	  <em class="shares-expand"><%= "#{list.list_type.capitalize}, #{list.shares.length} Shares:" %>
 	  	<% if current_user == list.user %>
-			<span class="share-item"><%= image_tag("/images/share.png")%></span>
-			<span class="hover-text-1">Share List</span>
+			<span class="share-item hover-3"><%= image_tag("/images/share.png")%></span>
+			<span class="hover-text-3">Share List</span>
 		<% end %>
 	  </em>
 	  	<ul class="shares-list" hidden>
@@ -39,8 +53,8 @@
 		  	<em><li id=<%= share.id %> class="share-email">
 	  			<%= share.user.email %>
 	  			<% if current_user == list.user %>
-	  				<%= link_to image_tag("/images/remove.jpeg"), share, method: :delete, remote: true, class: "share-item", hidden: true %>
-		  			<span class="hover-text-1">Remove Share</span>
+	  				<%= link_to image_tag("/images/remove.jpeg"), share, method: :delete, remote: true, class: "share-item hover-2", hidden: true %>
+		  			<span class="hover-text-2">Remove Share</span>
 	  			<% end %>
 	  		</li></em>
 		  <% end -%>
