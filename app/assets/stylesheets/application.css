@@ -193,3 +193,8 @@ li.top-level:before {
 .hover-text-4 {
   left: -8em;
 }
+
+label.user-email {
+  font-size: .8em;
+  margin-left: 17px;
+}

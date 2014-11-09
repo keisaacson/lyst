@@ -9,11 +9,11 @@
 <div class="add-share" hidden>
 	<%= form_tag("/lists/#{@list.id}/shares", method: :post, remote: true) do -%>
 
-		<label for="autocomplete">Select a user: </label>
+		<label for="autocomplete" class="user-email">Search users: </label>
 		<input id="autocomplete" name="user[email]">
 		
 		<input name="share[list_id]" value=<%= "#{@list.id}" %> type="hidden">
-		<input type="submit" value="Share List">
+		<!-- <input type="submit" value="Share List"> -->
 	<% end -%>
 </div>
 

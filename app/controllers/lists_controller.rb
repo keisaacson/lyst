@@ -14,7 +14,8 @@ class ListsController < ApplicationController
   end
 
   def public_search
-    @search_results = List.where("title LIKE ?", "%#{params[:list][:search]}%")
+    @public_lists_all = List.where(list_type: "public")
+    @search_results = List.where("list_type = 'public'").where("title LIKE ?", "%#{params[:list][:search]}%")
   end
 
   def show

@@ -11,8 +11,6 @@
 			<span class="hover-text-3">Share List</span>
 		<% end %>
 	  </em>
-	  <ul class="shares-list">
-	  </ul>
 	<% elsif list.shares.length == 1 %>
 	  <em><%= "1 Share:" %>
 	  	<% if current_user == list.user %>
@@ -36,7 +34,7 @@
 			<span class="hover-text-3">Share List</span>
 		<% end %>
 	  </em>
-	  	<ul class="shares-list" hidden>
+	  	<ul class="shares-list">
 		  <% list.shares.each do |share| %>
 		  	<em><li id=<%= share.id %> class="share-email">
 	  			<%= share.user.email %>
