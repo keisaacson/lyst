@@ -16,9 +16,9 @@
        <em><%= "Owner: #{list.user.email}" %></em>
     <% end %>
 
-    <ol class="nested-list">
+    <ul class="nested-list">
       <% list.items.each do |item|%>
       	<li class="list-item"><%= item.content %></li>
       <% end %>
-    </ol>
+    </ul>
   </div>

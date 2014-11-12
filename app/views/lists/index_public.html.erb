@@ -1,13 +1,17 @@
 <!-- Public Lists Index Page with Public List Search Bar -->
 
-<div id="public-lists-container">
-	<%= form_tag("/lists/public/search", method: :get) do -%>
+<br>
+<%= form_tag("/lists/public/search", method: :get) do -%>
 
-		<label for="autocomplete">Search public lists: </label>
-		<input id="autocomplete" name="list[search]">
-		
-		<!-- <input type="submit" value="Share List"> -->
-	<% end -%>
+	<label for="autocomplete">Search lists: </label>
+	<input id="autocomplete" name="list[search]" class="text-input">
+	
+	<input type="submit" value="Search" class="btn-style">
+<% end -%>
+
+<br>
+
+<div id="public-lists-container">
 
 	<strong class="list-title">Most Recent Public Lists</strong>
 	<ul class="list-items">

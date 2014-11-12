@@ -1,7 +1,16 @@
 <!-- My Lists Index Page with My Lists/My Shares Containers -->
 
+<br>
+	<%= form_tag("/lists", method: :post) do -%>
+		<label for="title">Add New List: </label>
+		<input type="text" id="title" name="list[title]" class="text-input">
+		
+		<input type="submit" value="Create" class="btn-style">
+	<% end -%>
+<br>
+
 <div id="my-lists-container">
-<strong class="list-title">My Lists</strong>
+<h2><strong class="list-title">My Lists</strong></h2>
 	<ul class="list-items">
 	  <% if @lists.length == 0 %>
 	    <p class="empty-list"> You don't have any lists- add some below!</p>
@@ -14,7 +23,7 @@
 </div>
 
 <div id="my-shares-container">
-	<strong class="list-title">My Shares</strong>
+	<strong class="list-title">Shared Lists</strong>
 	<ul class="list-items">
 	  <% if @shares.length == 0 %>
 	    <p class="empty-list"> You don't currently have any shares :( </p>
