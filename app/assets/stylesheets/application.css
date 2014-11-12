@@ -136,7 +136,7 @@ form input.text-input {
 }
 
 #my-lists-container, #my-shares-container {
-  min-width: 290px;
+  width: 290px;
 }
 
 @media (min-width: 700px) {
