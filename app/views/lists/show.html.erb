@@ -10,7 +10,7 @@
 	<%= form_tag("/lists/#{@list.id}/shares", method: :post, remote: true) do -%>
 
 		<label for="autocomplete" class="user-email">Search users: </label>
-		<input id="autocomplete" name="user[email]">
+		<input id="autocomplete" name="user[email]" class="text-input">
 		
 		<input name="share[list_id]" value=<%= "#{@list.id}" %> type="hidden">
 		<!-- <input type="submit" value="Share List"> -->
@@ -29,10 +29,10 @@
 </ul>
 
 <%= form_tag("/lists/#{@list.id}/items", method: :post, remote: true) do -%>
-	<input type="text" id="content" name="item[content]">
+	<input type="text" id="content" name="item[content]" class="text-input">
 	
 	<input name="list[id]" value=<%= "#{@list.id}" %> type="hidden">
-	<input type="submit" value="Add Item">
+	<input type="submit" class="btn-style" value="Add Item">
 <% end -%>
 
 </br>

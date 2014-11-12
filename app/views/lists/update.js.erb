@@ -1,7 +1,7 @@
 // Edit list title on Show Page & Edit list_type (public/private) on Index page
 
 (function () {
-	var title = "<%= @list.title %>";
+	var title = "<%= raw @list.title %>";
 	$('.list-title .title').text(title);
 	$('.edit-title form').hide();
 	$('.list-title').show();

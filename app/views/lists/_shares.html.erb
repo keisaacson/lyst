@@ -12,7 +12,7 @@
 		<% end %>
 	  </em>
 	<% elsif list.shares.length == 1 %>
-	  <em><%= "1 Share:" %>
+	  <em><%= "1 Share" %>
 	  	<% if current_user == list.user %>
 			<span class="share-item hover-3"><%= image_tag("/images/share.png")%></span>
 			<span class="hover-text-3">Share List</span>
@@ -28,13 +28,13 @@
 	  		</li></em>
 	  </ul>
 	<% else %>
-	  <em class="shares-expand"><%= "#{list.shares.length} Shares:" %>
+	  <em class="shares-expand"><%= "#{list.shares.length} Shares" %>
 	  	<% if current_user == list.user %>
 			<span class="share-item hover-3"><%= image_tag("/images/share.png")%></span>
 			<span class="hover-text-3">Share List</span>
 		<% end %>
 	  </em>
-	  	<ul class="shares-list">
+	  	<ul class="shares-list" hidden>
 		  <% list.shares.each do |share| %>
 		  	<em><li id=<%= share.id %> class="share-email">
 	  			<%= share.user.email %>

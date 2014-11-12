@@ -2,7 +2,7 @@
 
 <li id=<%= "edit#{item.id}" %> class="list-item top-level" hidden>
 	<%= form_tag("/items/#{item.id}", method: :put, remote: true) do -%>
-		<input type="text" id=<%= "content#{item.id}" %> name="item[content]" value="<%= item.content %>">
+		<input type="text" class="text-input" id=<%= "content#{item.id}" %> name="item[content]" value="<%= item.content %>">
 		
 		<input name="list[id]" value=<%= "#{item.list_id}" %> type="hidden">
 		<span id=<%="list-icons#{item.id}"%> class="list-icons">

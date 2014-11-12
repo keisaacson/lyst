@@ -2,7 +2,7 @@
 
 (function () {
 	var id = "<%= @item.id %>";
-	var content = "<%= @item.content %>";
+	var content = "<%= raw @item.content %>";
 	$('li#'+ id).text(content);
 	$('li#edit'+ id).hide();
 	$('li#'+ id).show();

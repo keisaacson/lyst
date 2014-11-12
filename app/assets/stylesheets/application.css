@@ -61,8 +61,18 @@ form label {
   margin-left: 1.5em;
 }
 
-form input.btn-style:hover {
+.devise-link {
+  margin: 1em 0 0 1em;
+  font-size: .8em;
+  text-decoration: none;
+}
 
+.devise-btn {
+  margin: .4em 0 .5em .8em;
+}
+
+.devise-text {
+  font-size: .6em;
 }
 
 form input.text-input {
@@ -126,7 +136,13 @@ form input.text-input {
 }
 
 #my-lists-container, #my-shares-container {
-  width: 50%;
+  min-width: 290px;
+}
+
+@media (min-width: 700px) {
+  #my-shares-container {
+    float: right;
+  }
 }
 
 .block {
@@ -168,8 +184,15 @@ li.top-level {
 	margin: 5px 10px;
 }
 
-li.top-level:hover {
+li.top-level:hover,
+em.shares-expand:hover,
+span.title-edit {
   cursor: pointer;
+}
+
+li.share-email {
+  font-size: 0.8em;
+  margin-left: 1em;
 }
 
 .nested-list {

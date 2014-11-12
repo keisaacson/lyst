@@ -28,9 +28,9 @@
 <% public_list_titles = @public_lists_all.map {|l| l.title }.join(',')%>
 
 <script>
-	var public_lists = '<%= public_list_titles %>';
+	var publicLists = "<%= raw public_list_titles %>";
 	$( "#autocomplete" ).autocomplete({
 		minLength: 2,
-		source: public_lists.split(','),
+		source: publicLists.split(','),
 	});
 </script>

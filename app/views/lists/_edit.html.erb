@@ -1,9 +1,9 @@
 <!-- Show List page, List Title and Edit List Functionality for Current Users -->
 
-<strong class="list-title">
-	<span class="title"> <%= list.title %> <span>
-</strong>
 <% if current_user == list.user %>
+	<strong class="list-title">
+		<span class="title title-edit"> <%= list.title %> <span>
+	</strong>
 	<div class="edit-title">
 		<%= form_tag("/lists/#{list.id}", method: :put, remote: true, hidden: true) do -%>
 			<input type="text" id=<%= "title-content"%> name="list[title]" value="<%= list.title %>">
@@ -16,4 +16,8 @@
 			</span>
 		<% end -%>
 	</div>
+<% else %>
+	<strong class="list-title">
+		<span class="title"> <%= list.title %> <span>
+	</strong>
 <% end %>
