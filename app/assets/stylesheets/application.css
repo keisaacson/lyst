@@ -40,11 +40,15 @@ html * {
   border-bottom: 1px solid #888;
   background-color: #444;
   color: white;
+  max-width: 840px;
+  margin: 0 auto;
+  border-bottom-right-radius: .3em;
+  border-bottom-left-radius: .3em;
 }
 
 #heading {
   float: left;
-  padding: 10px;
+  padding: 25px 0 0 20px;
 }
 
 h1 {
@@ -53,6 +57,8 @@ h1 {
 
 #main-nav {
   float: right;
+  padding: 15px 0 0 0;
+  font-size: 1.2em;
 }
 
 #main-nav-list {
@@ -90,7 +96,10 @@ h1 {
 	display: inline-block;
 	float: left;
   padding-left: 10px;
-	width: 290px;
+}
+
+#my-lists-container, #my-shares-container {
+  width: 50%;
 }
 
 .block {

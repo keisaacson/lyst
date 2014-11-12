@@ -10,7 +10,6 @@
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 
-<div id="main-container">
 	<header id="main-header" class="cf">
 		<div id="heading">
 			<h1>lyst-eria</h1>
@@ -22,6 +21,7 @@
 				<% if current_user %>
 					<li><%= link_to 'My Lists', lists_path %></li>
 					<li><%= link_to 'Public Lists', lists_public_path %></li>
+					<li><%= link_to 'New List', new_list_path %></li>
 					<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
 				<% else %>
 				  <li><%= link_to 'Sign In', new_user_session_path %></li>
@@ -31,7 +31,9 @@
 		<p class="current-user"><%= current_user.email if current_user %></p>
 	</header>
 
-<%= yield %>
+<div id="main-container">
+
+	<%= yield %>
 
 </div>
 
