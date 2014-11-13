@@ -15,7 +15,7 @@ class ListsController < ApplicationController
 
   def public_search
     @public_lists_all = List.where(list_type: "public")
-    @search_results = List.where("list_type = 'public'").where("title LIKE ?", "%#{params[:list][:search]}%")
+    @search_results = List.where("list_type = 'public'").where("UPPER(title) LIKE UPPER(?)", "%#{params[:list][:search]}%")
   end
 
   def show
@@ -34,10 +34,6 @@ class ListsController < ApplicationController
   def new
     @list = List.new
   end
-
-  # def edit
-  #   @list = List.find(params[:id])
-  # end
 
   def create
     @list = List.new(list_params)
