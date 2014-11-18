@@ -18,7 +18,7 @@
 	  <% if @public_lists.length == 0 %>
 	    <p class="empty-list"> There aren't any public lists!! </p>
 	  <% else %>
-	    <% @public_lists.each do |public_list| %>
+	    <% @public_lists.order('updated_at DESC').each do |public_list| %>
 	        <%= render('lists/show', {:list => public_list, :page => 'public'}) %>
 	    <% end -%>
 	  <% end %>

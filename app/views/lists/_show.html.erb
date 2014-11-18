@@ -17,7 +17,7 @@
     <% end %>
 
     <ul class="nested-list">
-      <% list.items.each do |item|%>
+      <% list.items.order('items.created_at ASC').each do |item|%>
       	<li class="list-item"><%= item.content %></li>
       <% end %>
     </ul>

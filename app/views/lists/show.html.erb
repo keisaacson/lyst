@@ -21,7 +21,7 @@
   <% if @list.items.length == 0 %>
   	<p class="empty-list"> This list is currently empty- add some items!</p>
   <% else %>
-	  <% @list.items.each do |item| %>
+	  <% @list.items.order('items.created_at ASC').each do |item| %>
 	  	<%= render('items/show', :item => item) %>
 	  	<%= render('items/edit', :item => item) %>
 	  <% end -%>

@@ -18,7 +18,7 @@
 	  <% if @search_results.length == 0 %>
 	    <p class="empty-list"> Your search did not match any public lists. Please try again. </p>
 	  <% else %>
-	    <% @search_results.each do |result| %>
+	    <% @search_results.order('updated_at DESC').each do |result| %>
 	        <%= render('lists/show', {:list => result, :page => 'public'}) %>
 	    <% end -%>
 	  <% end %>
